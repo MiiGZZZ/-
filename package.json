@@ -1,0 +1,48 @@
+{
+  "name": "misbaha-desktop",
+  "version": "1.0.0",
+  "description": "مسبحة إلكترونية - إصدار سطح المكتب (Windows)",
+  "main": "main.js",
+  "author": "MiiGZZZ",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.miigzzz.misbaha.desktop",
+    "productName": "مسبحة إلكترونية",
+    "directories": {
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "web/**/*",
+      "build/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icons/win/icon.ico",
+      "artifactName": "Misbaha-Setup-${version}.exe"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "مسبحة إلكترونية"
+    }
+  }
+}
